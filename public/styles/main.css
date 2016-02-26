@@ -2252,6 +2252,10 @@
 				margin: 0.25em 0 0.25em 0;
 			}
 
+      .banner-button {
+        width: 50%;
+      }
+
 				input[type="button"].icon,
 				input[type="submit"].icon,
 				input[type="reset"].icon,
