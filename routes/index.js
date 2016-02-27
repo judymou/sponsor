@@ -77,7 +77,25 @@ exports = module.exports = function(app) {
     })
   });
   app.post('/claim', function(req, res) {
-    res.send({success: true});
+    var item = keystone.list('Claim').model({
+      name: req.body.name,
+      email: req.body.email,
+      amount: req.body.amount,
+      eventtitle: req.body.eventtitle,
+      eventdesp: req.body.eventdesp,
+      eventlink: req.body.eventlink,
+      taxid: req.body.taxid,
+      sponsor: req.body.sponsor,
+      state: 'pending'
+    });
+    item._req_user = 'user';
+    item.save(function(err) {
+      if (err) {
+         res.send({success: false});
+      } else {
+        res.send({success: true});
+      }
+    });
   });
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

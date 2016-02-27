@@ -59,7 +59,8 @@ function App() {
       e.preventDefault();
       var signupData = {name: $('#namepopup').val(), email: $('#emailpopup').val(),
               amount: $('#amountpopup').val(), eventtitle: $('#eventtitlepopup').val(),
-              eventdesp: $('#eventdesppopup').val(), eventlink: $('#eventlinkpopup').val(), taxid: $('#taxidpopup').val()};
+              eventdesp: $('#eventdesppopup').val(), eventlink: $('#eventlinkpopup').val(),
+              taxid: $('#taxidpopup').val(), sponsor: window.location.href.split('/').pop()};
       if (!signupData.name || !signupData.email || !signupData.amount || !signupData.eventtitle
           || !signupData.eventdesp || !signupData.eventlink) {
         alert('Sorry, cannot make a request. Some required information is missing.');
