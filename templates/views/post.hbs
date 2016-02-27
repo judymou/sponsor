@@ -57,7 +57,7 @@
 										  <span class="image featured"><img src="{{data.post.option1.picture}}" alt="" /></span>
 											<p style="font-size:20px"><b>{{data.post.option1.description}}</b>: {{data.post.option1.amount}} total, {{data.post.option1.claimedAmount}} claimed, {{data.post.option1.numPendingRequest}} pending request</p>
                       <footer>
-                        <a href="#" class="button">Request yours now</a>
+                        <a href="#" class="claim button">Request yours now</a>
                       </footer>
                     </section>
 										<section>
@@ -67,7 +67,7 @@
 										  <span class="image featured"><img src="{{data.post.option2.picture}}" alt="" /></span>
 											<p style="font-size:20px"><b>{{data.post.option2.description}}</b>: {{data.post.option2.amount}} total, {{data.post.option2.claimedAmount}} claimed, {{data.post.option2.numPendingRequest}} pending request</p>
                       <footer>
-                        <a href="#" class="button">Request yours now</a>
+                        <a href="#" class="claim button">Request yours now</a>
                       </footer>
                     </section>
 									</article>
@@ -109,6 +109,40 @@
 					</section>
 				</div>
 		</div>
+    <div class="overlay-content popup" id="claimpopup">
+      <span class="close-popup">x</span>
+      <form action="#" method="post" style="padding-top: 55px">
+        <div class="row uniform">
+          <div class="6u 12u$(small)">
+            <input name="name" id="namepopup" value="" placeholder="name" type="text">
+          </div>
+          <div class="6u$ 12u$(small)">
+            <input name="email" id="emailpopup" value="" placeholder="email" type="email">
+          </div>
+          <div class="12u$">
+            <input name="amount" id="amountpopup" value="" placeholder="How much do you need?" type="text">
+          </div>
+          <div class="12u$">
+            <input type="text" name="eventtitle" id="eventtitlepopup" value="" placeholder="What's the name of your event?">
+          </div>
+          <div class="12u$">
+            <input type="text" name="eventdesp" id="eventdesppopup" value="" placeholder="Can you describe your event?">
+          </div>
+          <div class="12u$">
+            <input type="text" name="eventlink" id="eventlinkpopup" value="" placeholder="Can you provide a link to your event for updates?">
+          </div>
+          <div class="12u$">
+            <input type="text" name="taxid" id="taxidpopup" value="" placeholder="tax id (optional)">
+            <p>If your request is approved, we send your sponsor this tax id and an acknowledge form for tax purposes</p>
+          </div>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input value="Send" id="claimpopup-send-message" class="" type="submit"></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
 
 		<!-- Scripts -->
 			<script src="/js/jquery.min.js"></script>

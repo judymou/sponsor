@@ -62,6 +62,10 @@ display:none;
   top: 15%;
 }
 
+#claimpopup {
+  top: 8%;
+}
+
 .close-popup {
   position: absolute;
   top: 5px;

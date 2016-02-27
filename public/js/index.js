@@ -49,6 +49,31 @@ function App() {
           $('.overlay-bg, .overlay-content').hide();
         });
     });
+
+    $('.claim').on('click', function(e) {
+      e.preventDefault();
+      $('#claimpopup').show().css({'position': 'fixed'});
+    });
+
+    $('#claimpopup-send-message').on('click', function(e) {
+      e.preventDefault();
+      var signupData = {name: $('#namepopup').val(), email: $('#emailpopup').val(),
+              amount: $('#amountpopup').val(), eventtitle: $('#eventtitlepopup').val(),
+              eventdesp: $('#eventdesppopup').val(), eventlink: $('#eventlinkpopup').val(), taxid: $('#taxidpopup').val()};
+      if (!signupData.name || !signupData.email || !signupData.amount || !signupData.eventtitle
+          || !signupData.eventdesp || !signupData.eventlink) {
+        alert('Sorry, cannot make a request. Some required information is missing.');
+        return;
+      }
+      $.post('/claim', signupData, function(data) {
+          if (data.success) {
+            alert('Thank you for making a request. Checkout your history on the dashbaord.');
+          } else {
+            alert('Sorry, cannot make a request. Please come back later.');
+          }
+          $('.overlay-bg, .overlay-content').hide();
+        });
+    });
   };
 }
 $(function() {

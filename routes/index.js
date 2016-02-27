@@ -76,6 +76,9 @@ exports = module.exports = function(app) {
       }
     })
   });
+  app.post('/claim', function(req, res) {
+    res.send({success: true});
+  });
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
