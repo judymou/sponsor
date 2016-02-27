@@ -44,9 +44,9 @@
 								</header>
 								<footer>
 									<ul class="actions">
-                    <li><a href="#" class="button big banner-button">Get sponsors</a></li>
+                    <li><a href="#" id="getsponsor" class="button big banner-button">Get sponsors</a></li>
 										<li style="font-weight: bold">or</li>
-										<li><a href="#" class="button alt big banner-button">Become a sponsor</a></li>
+										<li><a href="#" id="becomesponsor" class="button alt big banner-button">Become a sponsor</a></li>
 									</ul>
 								</footer>
 							</section>
@@ -275,6 +275,55 @@
 
 		</div>
 
+  <div class="overlay-bg" id="popupbg">
+  </div>
+  <div class="overlay-content popup" id="getsponsorpopup">
+    <span class="close-popup">x</span>
+    <p>Sign up to find sponsors for your event</p>
+    <form action="#" method="post">
+      <div class="row uniform">
+        <div class="6u 12u$(small)">
+          <input name="name" id="gnamepopup" value="" placeholder="name" type="text">
+        </div>
+        <div class="6u$ 12u$(small)">
+          <input name="email" id="gemailpopup" value="" placeholder="email" type="email">
+        </div>
+        <div class="12u$">
+          <input type="text" name="org" id="gorgpopup" value="" placeholder="What's the name of the orgnization?">
+        </div>
+        <div class="12u$">
+          <ul class="actions">
+            <li><input value="Send" id="getsponsor-send-message" class="" type="submit"></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="overlay-content popup" id="besponsorpopup">
+    <span class="close-popup">x</span>
+    <p>Sign up to become sponsors</p>
+    <form action="#" method="post">
+      <div class="row uniform">
+        <div class="6u 12u$(small)">
+          <input name="name" id="bnamepopup" value="" placeholder="name" type="text">
+        </div>
+        <div class="6u$ 12u$(small)">
+          <input name="email" id="bemailpopup" value="" placeholder="email" type="email">
+        </div>
+        <div class="12u$">
+          <input type="text" name="businessname" id="bbusinessnamepopup" value="" placeholder="What's the name of your business?">
+        </div>
+        <div class="12u$">
+          <input type="text" name="loc" id="blocpopup" value="" placeholder="Where is it located?">
+        </div>
+        <div class="12u$">
+          <ul class="actions">
+            <li><input value="Send" id="besponsor-send-message" class="" type="submit"></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
 		<!-- Scripts -->
 			<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
@@ -283,6 +332,6 @@
 			<script src="js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
-
+      <script src="js/index.js"></script>
 	</body>
 </html>

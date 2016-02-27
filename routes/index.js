@@ -21,7 +21,13 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-
+var gsheet = require('google-spreadsheet');
+var gsheetCred = {
+  client_email: process.env.gsheet_client_email,
+  private_key: process.env.gsheet_private_key
+};
+var getSponsorSheet = new gsheet('1cRLNsftpxH5HcrFbFWDWGonN-pP-WzrTE7yybAHtkkg');
+var beSponsorSheet = new gsheet('17xFEoDovki0cwDS0hpW72kGMNs-rgxMD6RIlKIcFsUk');
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -39,7 +45,37 @@ exports = module.exports = function(app) {
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	
-	
+  app.post('/getsponsorsignup', function(req, res) {
+    getSponsorSheet.useServiceAccountAuth(gsheetCred, function(err) {
+      if (err) {
+        console.log(err);
+        res.send({success: false});
+      } else {
+        getSponsorSheet.addRow(1, {
+           name: req.body.name,
+           email: req.body.email,
+           org: req.body.org || ''
+        });
+        res.send({success: true});
+      }
+    })
+  });
+  app.post('/besponsorsignup', function(req, res) {
+    beSponsorSheet.useServiceAccountAuth(gsheetCred, function(err) {
+      if (err) {
+        console.log(err);
+        res.send({success: false});
+      } else {
+        beSponsorSheet.addRow(1, {
+           name: req.body.name,
+           email: req.body.email,
+           businessname: req.body.businessname,
+           loc: req.body.loc
+        });
+        res.send({success: true});
+      }
+    })
+  });
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
