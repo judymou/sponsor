@@ -1372,10 +1372,15 @@
 		outline: 0;
 	}
 
+    #event .image img {
+      height: 16em;
+    }
+
 		.image img {
 			display: block;
 			width: 100%;
-		}
+		  height: 14em;
+    }
 
 		.image.centered {
 			display: block;
@@ -2196,6 +2201,12 @@
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
+      .image img {
+        height: auto;
+      }
+      #event .image img {
+        height: auto;
+      }
 
 			html, body {
 				overflow-x: hidden;
