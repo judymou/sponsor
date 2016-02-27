@@ -1662,7 +1662,7 @@
 	#banner {
 		background: #CCE8F4 url("../images/pic01.jpg");
 		background-position: center center;
-		background-size: 100% 100%;
+		background-size: cover; 
 		background-repeat: no-repeat;
 		text-align: center;
 	}
