@@ -13,14 +13,28 @@ var Post = new keystone.List('Post', {
 
 Post.add({
 	title: { type: String, required: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+	coverPicture: { type: String},
+  state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	image: { type: Types.CloudinaryImage },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+		brief: { type: String },
+		extended: { type: String}
 	},
+  option1: {
+    picture: {type: String},
+    description: {type: String},
+    amount: {type: Number},
+    claimedAmount: {type: Number},
+    numPendingRequest: {type: Number}
+  },
+  option2: {
+    picture: {type: String},
+    description: {type: String},
+    amount: {type: Number},
+    claimedAmount: {type: Number},
+    numPendingRequest: {type: Number}
+  },
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
 });
 

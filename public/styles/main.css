@@ -1812,9 +1812,9 @@
 			}
 
 				.box .image.featured {
-					left: 1.75em;
-					top: 1.75em;
-					margin: -4.5em 0 4.25em -3.5em;
+					#left: 1.75em;
+					#top: 1.75em;
+					#margin: -4.5em 0 4.25em -3.5em;
 				}
 
 				.box.post header {

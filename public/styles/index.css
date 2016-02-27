@@ -1,3 +1,6 @@
+#post .image img {
+  height: auto;
+}
 #titleBar {
 display:none;
 }
@@ -12,7 +15,7 @@ display:none;
    margin-top: 0px;
 }
 
-#header-wrapper {
+.homepage #header-wrapper {
   padding-top: 0;
 }
 
