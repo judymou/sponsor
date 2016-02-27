@@ -1669,7 +1669,7 @@
 
 		#banner header {
 			background-color: #252122;
-			background-color: rgba(34, 30, 31, 0.98);
+			background-color: rgba(34, 30, 31, 0.85);
 		}
 
 			#banner header h2 {
@@ -2200,6 +2200,9 @@
 
 	@media screen and (max-width: 736px) {
 
+     #banner {
+      background-size: auto 100%;
+     }
 		/* Basic */
       .image img {
         height: auto;
@@ -2531,8 +2534,8 @@
 		/* Banner */
 
 			#banner {
-				margin: 2em 0 4em 0 !important;
-				padding: 6em 0;
+				#margin: 2em 0 4em 0 !important;
+				padding: 1em 0 0.5em 0;
 			}
 
 				#banner header {
