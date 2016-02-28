@@ -36,7 +36,9 @@ Post.add({
     claimedAmount: {type: Number},
     numPendingRequest: {type: Number}
   },
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	lat: {type: String, default: '0'},
+	lng: {type: String, default: '0'}
 });
 
 Post.schema.virtual('content.full').get(function() {
