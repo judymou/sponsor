@@ -1,0 +1,9 @@
+.box h3 {
+  text-align: left;
+}
+.box p {
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 0;
+  margin-top: 0.55em;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dopetrope by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+		<link rel="stylesheet" href="/styles/letter.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="//js.arcgis.com/3.15/esri/css/esri.css"/>
+	</head>
+	<body class="right-sidebar" id="post">
+		<div id="page-wrapper">
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="12u 12u(mobile)">
+
+								<!-- Content -->
+									<article class="box post">
+                    {{# each data.claims.results}}
+									  <header>
+                      <h3>Dear {{sponsor}}</h3>
+                      <br>
+                      <p>Thank you so much for your very generous donation of $70 worth of item to the {{eventtitle}} received on 2/27/2016.</p>
+                      <p>This gift supports our efforts in fulfilling our mission.</p>
+                      <p>For federal income taxation purposes, this letter acknowledges your contribution. We are a non-profit 501(c)(3). Our tax ID is {{taxid}}</p>
+                      <br>
+                      <p>Respectfully,</p>
+                      <p>{{name}}</p>
+                    </header>
+                    {{/each}}
+                  </article>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.dropotron.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/skel-viewport.min.js"></script>
+			<script src="/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/js/main.js"></script>
+      <script src="/js/index.js"></script>
+
+			<script src="//js.arcgis.com/3.15/"></script>
+			<script src="/js/map.js"></script>
+	</body>
+</html>

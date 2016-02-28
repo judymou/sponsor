@@ -46,6 +46,8 @@ exports = module.exports = function(app) {
 	app.get('/sponsors/post/:post', routes.views.post);
   app.get('/business/:business', routes.views.business);
   app.get('/user/:user', routes.views.user);
+  app.get('/letter/:claim', routes.views.letter);
+  
   app.post('/getsponsorsignup', function(req, res) {
     getSponsorSheet.useServiceAccountAuth(gsheetCred, function(err) {
       if (err) {
