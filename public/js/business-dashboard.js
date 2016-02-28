@@ -42,6 +42,9 @@ $(function() {
     var row = $(item);
     row.find('.glyphicon-ok').click(function() {
       row.remove();
+      var lastCol = row.find('td')[row.find('td').length - 1];
+      lastCol.remove();
+      row.append($("<td>").text("Approved"));
       $("tbody.approved").prepend(row);
     });
     row.find('.glyphicon-remove').click(function() {

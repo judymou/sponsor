@@ -15,7 +15,7 @@ require([
   var map = new Map("map", {
     center: [-118, 34.5],
     zoom: 5,
-    basemap: "topo"
+    basemap: "national-geographic"
   });
 
   var infoWindow = new InfoWindowLite(null, domConstruct.create("div", null, null, map.root));
@@ -25,10 +25,9 @@ require([
 
   var textPrompts = [];
   var textPoints = [];
+  var markerSymbol = new PictureMarkerSymbol("/images/mapicon.png", 30, 30);
 
   function addPt(lat, lng, text) {
-    var markerSymbol = new PictureMarkerSymbol("/images/mapicon.png", 24, 24);
-
     var pt = new Point(lng, lat, new SpatialReference({ wkid: 4326 }));
     var graphic = new Graphic(pt, markerSymbol);
     if (text) {
