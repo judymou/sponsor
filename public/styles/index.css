@@ -122,7 +122,7 @@ display:none;
   font-size: 14pt;
 }
 
-#map_graphics_layer image {
+#map_graphics_layer image, .glyphicon-ok, .glyphicon-remove {
   cursor: pointer;
 }
 

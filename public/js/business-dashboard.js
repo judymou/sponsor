@@ -38,7 +38,14 @@ $(function() {
     }
   });
 
-  $("tbody.pending tr").each(function(i, row) {
-    console.log(i);
+  $("tbody.pending tr").each(function(i, item) {
+    var row = $(item);
+    row.find('.glyphicon-ok').click(function() {
+      row.remove();
+      $("tbody.approved").prepend(row);
+    });
+    row.find('.glyphicon-remove').click(function() {
+      row.remove();
+    });
   });
 });
