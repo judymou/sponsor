@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/styles/index.css" />
 		<link rel="stylesheet" href="/styles/business.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<link rel="stylesheet" href="/styles/c3.min.css" />
 	</head>
 	<body class="right-sidebar" id="sponsors">
 		<div id="page-wrapper">
@@ -57,7 +59,7 @@
                             <th>Action<th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="pending">
                           {{# each data.claims.pendingresults}}
                           <tr>
                             <td class="col-md-1">{{eventtitle}}</td>
@@ -121,12 +123,27 @@
                               Fulfilled
                             </td>
                             <td>
-                              
+
                             </td>
                           </tr>
                           {{/each}}
                         </tbody>
                       </table>
+										</div>
+									</section>
+
+
+									<header class="major">
+										<h2>Fulfilled Requests</h2>
+									</header>
+									<br>
+									<br>
+									<section>
+										<div class="row">
+											<div class="col-sm-12">
+  											<div id="chart">
+												</div>
+											</div>
 										</div>
 									</section>
 					</div>
@@ -161,5 +178,9 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/js/main.js"></script>
       <script src="/js/index.js"></script>
+
+			<script src="/js/d3.min.js"></script>
+			<script src="/js/c3.min.js"></script>
+			<script src="/js/business-dashboard.js"></script>
 	</body>
 </html>

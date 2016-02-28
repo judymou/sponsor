@@ -125,3 +125,11 @@ display:none;
 #map_graphics_layer image {
   cursor: pointer;
 }
+
+#chart {
+  height: 250px;
+}
+
+.c3-legend-item text {
+  font-weight: bold;
+}
