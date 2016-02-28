@@ -10,7 +10,8 @@ exports = module.exports = function(req, res) {
 	locals.section = 'business';
 	locals.data = {
 		claims: [],
-	  businessName: req.params.business.replace(/-/g, ' '),
+	  post: [],
+    businessName: req.params.business.replace(/-/g, ' '),
   };
 	
 	view.on('init', function(next) {
@@ -35,7 +36,18 @@ exports = module.exports = function(req, res) {
 		});
 	});
 	
-	// Render the view
+	view.on('init', function(next) {
+		
+		var q = keystone.list('Post').model.findOne()
+      .where('slug', req.params.business);
+		
+		q.exec(function(err, result) {
+			locals.data.post= result;
+			next(err);
+		});
+	});
+
+  // Render the view
 	view.render('business');
 	
 };

@@ -25,6 +25,7 @@ Post.add({
   option1: {
     picture: {type: String},
     description: {type: String},
+    price: {type: Number},
     amount: {type: Number},
     claimedAmount: {type: Number},
     numPendingRequest: {type: Number}
@@ -32,6 +33,7 @@ Post.add({
   option2: {
     picture: {type: String},
     description: {type: String},
+    price: {type: Number},
     amount: {type: Number},
     claimedAmount: {type: Number},
     numPendingRequest: {type: Number}
