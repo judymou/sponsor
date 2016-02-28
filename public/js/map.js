@@ -64,16 +64,23 @@ require([
         map.centerAndZoom(pt, 14);
       });
     } else if ($(".address").length > 1) {
-      var addresses = $(".address");
-      var titles = $(".place-title");
+      var places = $(".place");
       var knownAddress = {};
-      for (var a = 0; a < addresses.length; a++) {
-        var address = $(addresses[a]).text() || $(addresses[a]).val();
-        if (knownAddress[address]) {
-          continue;
+      for (var p = 0; p < places.length; p++) {
+        var place = $(places[p]);
+        var placeLink = '<a href="' + place.find('.place-title').attr("href") + '">' + place.find('.place-title').text() + '</a>'
+        if (place.find('.lat').val() * 1 && place.find('.lng').val() * 1) {
+          //console.log('adding lat/lng');
+          addPt(place.find(".lat").val() * 1, place.find(".lng").val() * 1, placeLink);
+        } else {
+          var address = place.find(".address").text() || place.find(".address").val();
+          //console.log('adding ' + address);
+          if (knownAddress[address]) {
+            continue;
+          }
+          knownAddress[address] = true;
+          mapAddress(address, placeLink);
         }
-        knownAddress[address] = true;
-        mapAddress(address, '<a href="' + $(titles[a]).attr("href") + '">' + $(titles[a]).text() + '</a>');
       }
       var pt = new Point(-122.413, 37.78, new SpatialReference({ wkid: 4326 }));
       map.centerAndZoom(pt, 12);
