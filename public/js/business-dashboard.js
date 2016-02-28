@@ -1,30 +1,36 @@
 $(function() {
-  var approve = ['Approved'];
-  var thism = ['This Month', 0, 0, 0, 0, 0, 0];
-
-  for (var a = 0; a < 6; a++) {
-    approve.push(Math.ceil(Math.random() * 14) + 8);
+  var approve = ['Option 1'];
+  var opt2 = ['Option 2'];
+  var thism = ['This Month'];
+  for (var a = 0; a < 11; a++) {
+    approve.push(Math.ceil(Math.random() * 10) + 8);
+    opt2.push(Math.ceil(Math.random() * 6));
+    thism.push(0);
   }
-
   approve.push(0);
+  opt2.push(0);
   thism.push(Math.ceil(Math.random() * 14) + 4);
 
   var chart = c3.generate({
     data: {
       columns: [
         approve,
+        opt2,
         thism
       ],
-      type: 'bar',
-      colors: function(n) {
-        return '#ff0000';
+      groups: [['Option 1', 'Option 2']],
+      type: 'bar'
+    },
+    bar: {
+      width: {
+        ratio: 1.5
       }
     },
     axis: {
       x: {
         tick: {
           format: function (n) {
-            return ["August", "September", "October", "November", "December", "January", "February"][n];
+            return ["March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January", "February"][n];
           },
           culling: false
         }
@@ -33,6 +39,6 @@ $(function() {
   });
 
   $("tbody.pending tr").each(function(i, row) {
-    console.log(row);
+    console.log(i);
   });
 });
