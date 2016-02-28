@@ -12,16 +12,24 @@ exports = module.exports = function(req, res) {
 		claims: [],
 	};
 	
+	view.on('init', function(next) {
+		var q1 = keystone.list('Claim').model.find()
+      .where('sponsor', req.params.business)
+      .where('state', 'approved');
+		q1.exec(function(err, results) {
+			locals.data.claims.approvedresults= results;
+			next(err);
+		});
+	});
 	// Load the posts
 	view.on('init', function(next) {
 		
 		var q = keystone.list('Claim').model.find()
-      .where('sponsor', req.params.business);
+      .where('sponsor', req.params.business)
+      .where('state', 'pending');
 		
 		q.exec(function(err, results) {
-      console.log('here');
-      console.log(results);
-			locals.data.claims.results= results;
+			locals.data.claims.pendingresults= results;
 			next(err);
 		});
 	});
