@@ -122,6 +122,14 @@ display:none;
   font-size: 14pt;
 }
 
-#map_graphics_layer image {
+#map_graphics_layer image, .glyphicon-ok, .glyphicon-remove {
   cursor: pointer;
+}
+
+#chart {
+  height: 250px;
+}
+
+.c3-legend-item text {
+  font-weight: bold;
 }
