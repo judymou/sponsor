@@ -103,3 +103,25 @@ display:none;
     padding: 25px;
   }
 }
+
+.mapbanner {
+  margin-left: 0;
+}
+
+.mapbanner #map {
+  height: 250px;
+}
+
+.simpleInfoWindow .content {
+  display: none !important;
+  height: 0 !important;
+}
+
+.simpleInfoWindow .title {
+  text-align: center;
+  font-size: 14pt;
+}
+
+#map_graphics_layer image {
+  cursor: pointer;
+}
