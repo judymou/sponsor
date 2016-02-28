@@ -2,13 +2,14 @@ $(function() {
   var items = ['Art', 'Venue', 'Transport', 'Food', 'Coupon', 'Service'];
 
   for (var i = 0; i < items.length; i++) {
-    var label = $("<label>");
+    var label = $("<label class='active'>");
     label.append($("<input type='checkbox' checked/>").attr("id", items[i].toLowerCase()))
     label.append(items[i]);
     $(".filters").append(label);
   }
 
   $(".filters input").click(function() {
+    $(this).parent().toggleClass('active');
     var count = 0;
     for (var i = 0; i < items.length; i++) {
       items[i] = items[i].toLowerCase();
