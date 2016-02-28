@@ -21,30 +21,31 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<div id="header-wrapper">
+				<div id="header-wrapper" style="background-color:#f7f7f7;padding-bottom:1em;padding-top:2em">
 					<div id="header">
-
-
-						<!-- Nav -->
+							<header>
+                <h2>{{data.businessName}}</h2>
+              </header>
 							<nav id="nav">
 								<ul>
-									<li><a href="/">Home</a></li>
-									<li class="current"><a href="/sponsors">Sponsors</a></li>
+									<li><a href="#pending">Pending</a></li>
+									<li><a href="#approved">Approved</a></li>
+									<li><a href="#tax">Tax</a></li>
 								</ul>
 							</nav>
-
 					</div>
 				</div>
 
 			<!-- Main -->
-				<div id="main-wrapper">
+				<div id="main-wrapper" style="background-color: white">
 					<div class="container">
+                  <a name="pending"></a>
                   <header class="major">
                     <h2>Pending Request</h2>
                   </header>
+									<br>
                   <br>
-                  <br>
-									<section>
+                  <section>
 										<div class="row">
                       <table  class="table table-striped">
                         <thead>
@@ -84,6 +85,7 @@
 										</div>
 									</section>
 
+                  <a name="approved"></a>
                   <header class="major">
                     <h2>Approved Request</h2>
                   </header>
@@ -133,11 +135,6 @@
 									</section>
 
 
-									<header class="major">
-										<h2>Fulfilled Requests</h2>
-									</header>
-									<br>
-									<br>
 									<section>
 										<div class="row">
 											<div class="col-sm-12">

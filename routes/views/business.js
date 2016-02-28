@@ -10,7 +10,8 @@ exports = module.exports = function(req, res) {
 	locals.section = 'business';
 	locals.data = {
 		claims: [],
-	};
+	  businessName: req.params.business.replace(/-/g, ' '),
+  };
 	
 	view.on('init', function(next) {
 		var q1 = keystone.list('Claim').model.find()
