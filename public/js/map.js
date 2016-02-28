@@ -58,10 +58,16 @@ require([
 
   map.on("load", function(){
     if ($(".address").length == 1) {
-      var address = $(".address").text() || $(".address").val() || "2 Marina Blvd, San Francisco, CA";
-      mapAddress(address, null, function(pt) {
+      var place = $('body');
+      if (place.find('.lat').val() * 1 && place.find('.lng').val() * 1) {
+        var pt = addPt(place.find(".lat").val() * 1, place.find(".lng").val() * 1);
         map.centerAndZoom(pt, 14);
-      });
+      } else {
+        var address = $(".address").text() || $(".address").val() || "2 Marina Blvd, San Francisco, CA";
+        mapAddress(address, null, function(pt) {
+          map.centerAndZoom(pt, 14);
+        });
+      }
     } else if ($(".address").length > 1) {
       var places = $(".place");
       var knownAddress = {};
