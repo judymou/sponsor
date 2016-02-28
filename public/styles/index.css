@@ -133,3 +133,15 @@ display:none;
 .c3-legend-item text {
   font-weight: bold;
 }
+
+.simpleInfoWindow .title {
+  border-bottom: none !important;
+}
+
+.close {
+  opacity: 0.7 !important;
+}
+
+.esriAttributionLastItem {
+  display: none !important;
+}
