@@ -219,6 +219,9 @@ module.exports = function() {
 		return ('/sponsors/post/' + postSlug);
 	};
 	
+	_helpers.historyUrl = function(postSlug, options) {
+		return ('/business/' + postSlug);
+	};
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function(pageNumber, options) {
