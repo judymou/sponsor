@@ -130,7 +130,11 @@
                               <td class="col-md=1">No</td>
                             {{/if}}
                             <td class="col-md-1">{{taxid}}</td>
-                            <td><a href="/letter/{{slug}}">Link</a></td>
+                            {{#if taxid}}
+                              <td><a href="/letter/{{slug}}">Link</a></td>
+                            {{else}}
+                              <td></td>
+                            {{/if}}
                           </tr>
                           {{/each}}
                         </tbody>
