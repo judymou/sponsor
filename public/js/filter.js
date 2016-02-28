@@ -1,7 +1,14 @@
 $(function() {
-  $(".filters input").click(function() {
-    var items = ['food', 'travel', 'venue', 'theatre', 'clothing', 'software'];
+  var items = ['Art', 'Venue', 'Transport', 'Food', 'Coupon', 'Service'];
 
+  for (var i = 0; i < items.length; i++) {
+    var label = $("<label>");
+    label.append($("<input type='checkbox' checked/>").attr("id", items[i].toLowerCase()))
+    label.append(items[i]);
+    $(".filters").append(label);
+  }
+
+  $(".filters input").click(function() {
     var count = 0;
     for (var i = 0; i < items.length; i++) {
       items[i] = items[i].toLowerCase();
