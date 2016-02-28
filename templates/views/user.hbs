@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dopetrope by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+		<link rel="stylesheet" href="/styles/business.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="right-sidebar" id="sponsors">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header">
+
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li class="current"><a href="/sponsors">Sponsors</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+                  <header class="major">
+                    <h2>Pending Request</h2>
+                  </header>
+                  <br>
+                  <br>
+									<section>
+										<div class="row">
+                      <table  class="table table-striped">
+                        <thead>
+                          <tr style="font-weight: bold">
+                            <th>Event</th>
+                            <th>Description</th>
+                            <th>Live Update</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th>Non-profit</th>
+                            <th>Action<th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{# each data.claims.pendingresults}}
+                          <tr>
+                            <td class="col-md-1">{{eventtitle}}</td>
+                            <td class="col-md-4">{{eventdesp}}</td>
+                            <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
+                            <td class="col-md-1">{{name}}</td>
+                            <td class="col-md-2">{{email}}</td>
+                            <td class="col-md-1">{{amount}} x option 1</td>
+                            {{#if taxid}}
+                              <td class="col-md-1">Yes</td>
+                            {{else}}
+                              <td class="col-md=1">No</td>
+                            {{/if}}
+                            <td class="col-md-1">
+                              Waiting for approval
+                            </td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+                      </table>
+										</div>
+									</section>
+
+                  <header class="major">
+                    <h2>Approved Request</h2>
+                  </header>
+                  <br>
+                  <br>
+									<section>
+										<div class="row">
+                      <table  class="table table-striped">
+                        <thead>
+                          <tr style="font-weight: bold">
+                            <th>Event</th>
+                            <th>Description</th>
+                            <th>Live Update</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th>Non-profit</th>
+                            <th>Action<th>
+                            <th>Tax Letter</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{# each data.claims.approvedresults}}
+                          <tr>
+                            <td class="col-md-1">{{eventtitle}}</td>
+                            <td class="col-md-4">{{eventdesp}}</td>
+                            <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
+                            <td class="col-md-1">{{name}}</td>
+                            <td class="col-md-2">{{email}}</td>
+                            <td class="col-md-1">{{amount}} x option 1</td>
+                            {{#if taxid}}
+                              <td class="col-md-1">Yes</td>
+                            {{else}}
+                              <td class="col-md=1">No</td>
+                            {{/if}}
+                            <td class="col-md-1">
+                              Fulfilled
+                            </td>
+                            <td>
+                            </td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+                      </table>
+										</div>
+									</section>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<section id="footer" style="border-top: none" class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy;Judy Mou and Hannah Yang. All rights reserved.</li>
+                    </ul>
+									</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.dropotron.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/skel-viewport.min.js"></script>
+			<script src="/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/js/main.js"></script>
+      <script src="/js/index.js"></script>
+	</body>
+</html>
