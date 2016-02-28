@@ -57,7 +57,7 @@
                             <th>Email</th>
                             <th>Amount</th>
                             <th>Non-profit</th>
-                            <th>Action<th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody class="pending">
@@ -102,8 +102,9 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Amount</th>
+                            <th>Action</th>
                             <th>Non-profit</th>
-                            <th>Action<th>
+                            <th>Tax Id</th>
                             <th>Tax Letter</th>
                           </tr>
                         </thead>
@@ -111,22 +112,21 @@
                           {{# each data.claims.approvedresults}}
                           <tr>
                             <td class="col-md-1">{{eventtitle}}</td>
-                            <td class="col-md-4">{{eventdesp}}</td>
+                            <td class="col-md-3">{{eventdesp}}</td>
                             <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
                             <td class="col-md-1">{{name}}</td>
-                            <td class="col-md-2">{{email}}</td>
+                            <td class="col-md-1">{{email}}</td>
                             <td class="col-md-1">{{amount}} x option 1</td>
+                            <td class="col-md-1">
+                              Fulfilled
+                            </td>
                             {{#if taxid}}
                               <td class="col-md-1">Yes</td>
                             {{else}}
                               <td class="col-md=1">No</td>
                             {{/if}}
-                            <td class="col-md-1">
-                              Fulfilled
-                            </td>
-                            <td>
-
-                            </td>
+                            <td class="col-md-1">{{taxid}}</td>
+                            <td></td>
                           </tr>
                           {{/each}}
                         </tbody>
