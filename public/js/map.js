@@ -1,5 +1,16 @@
-require(["esri/map", "esri/dijit/Search", "esri/symbols/SimpleMarkerSymbol", "esri/SpatialReference", "esri/graphic", "esri/geometry/Point", "esri/Color", "dojo/domReady!"],
-  function(Map, Search, SimpleMarkerSymbol, SpatialReference, Graphic, Point, Color) {
+require([
+  "esri/map",
+  "dojo/_base/connect",
+  "esri/dijit/Search",
+  "esri/symbols/PictureMarkerSymbol",
+  "esri/SpatialReference",
+  "esri/graphic",
+  "esri/geometry/Point",
+  "esri/dijit/InfoWindow",
+  "esri/dijit/InfoWindowLite",
+  "dojo/dom-construct",
+  "dojo/domReady!"
+], function(Map, connect, Search, PictureMarkerSymbol, SpatialReference, Graphic, Point, InfoWindow, InfoWindowLite, domConstruct) {
 
   var map = new Map("map", {
     center: [-118, 34.5],
@@ -7,28 +18,73 @@ require(["esri/map", "esri/dijit/Search", "esri/symbols/SimpleMarkerSymbol", "es
     basemap: "topo"
   });
 
-  var address = $("#address").text() || "2 Marina Blvd, San Francisco, CA";
-  $.get('//geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=' + address + '&f=json&outSR=4326&outFields=Addr_type%2CMatch_addr%2CStAddr%2CCity&maxLocations=1', function (data) {
-    if (typeof data !== 'object') {
-      data = JSON.parse(data);
+  var infoWindow = new InfoWindowLite(null, domConstruct.create("div", null, null, map.root));
+  infoWindow.startup();
+  infoWindow.resize(212, 50);
+  map.setInfoWindow(infoWindow);
+
+  var textPrompts = [];
+  var textPoints = [];
+
+  function addPt(lat, lng, text) {
+    var markerSymbol = new PictureMarkerSymbol("/images/mapicon.png", 24, 24);
+
+    var pt = new Point(lng, lat, new SpatialReference({ wkid: 4326 }));
+    var graphic = new Graphic(pt, markerSymbol);
+    if (text) {
+      graphic.id = 'text-' + textPrompts.length;
+      textPrompts.push(text);
+      textPoints.push(pt);
     }
 
-    if (data.candidates.length) {
-      var geo = data.candidates[0].location;
-      var markerSymbol = new SimpleMarkerSymbol();
-        markerSymbol.setPath("M16,4.938c-7.732,0-14,4.701-14,10.5c0,1.981,0.741,3.833,2.016,5.414L2,25.272l5.613-1.44c2.339,1.316,5.237,2.106,8.387,2.106c7.732,0,14-4.701,14-10.5S23.732,4.938,16,4.938zM16.868,21.375h-1.969v-1.889h1.969V21.375zM16.772,18.094h-1.777l-0.176-8.083h2.113L16.772,18.094z");
-        markerSymbol.setColor(new Color("#00FFFF"));
+    map.graphics.add(graphic);
+    return pt;
+  }
 
-      var pt = new Point(geo.x, geo.y, new SpatialReference({ wkid: 4326 }));
-      map.graphics.add(new Graphic(pt, markerSymbol));
-      map.centerAndZoom(pt, 14);
+  function mapAddress(address, text, callback) {
+    $.get('//geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=' + address + '&f=json&outSR=4326&outFields=Addr_type%2CMatch_addr%2CStAddr%2CCity&maxLocations=1', function (data) {
+      if (typeof data !== 'object') {
+        data = JSON.parse(data);
+      }
+
+      if (data.candidates.length) {
+        var geo = data.candidates[0].location;
+        var pt = addPt(geo.y, geo.x, text);
+        if (callback) {
+          callback(pt);
+        }
+      }
+    });
+  }
+
+  map.on("load", function(){
+    if ($(".address").length == 1) {
+      var address = $(".address").text() || $(".address").val() || "2 Marina Blvd, San Francisco, CA";
+      mapAddress(address, null, function(pt) {
+        map.centerAndZoom(pt, 14);
+      });
+    } else if ($(".address").length > 1) {
+      var addresses = $(".address");
+      var titles = $(".place-title");
+      var knownAddress = {};
+      for (var a = 0; a < addresses.length; a++) {
+        var address = $(addresses[a]).text() || $(addresses[a]).val();
+        if (knownAddress[address]) {
+          continue;
+        }
+        knownAddress[address] = true;
+        mapAddress(address, '<a href="' + $(titles[a]).attr("href") + '">' + $(titles[a]).text() + '</a>');
+      }
+      var pt = new Point(-122.413, 37.78, new SpatialReference({ wkid: 4326 }));
+      map.centerAndZoom(pt, 12);
     }
+
+    map.graphics.on("click", function (evt) {
+      var id = evt.graphic.id.split('-');
+      if (id.length > 1) {
+        infoWindow.setTitle(textPrompts[id[1] * 1]);
+        infoWindow.show(pt, pt, InfoWindow.ANCHOR_UPPERRIGHT);
+      }
+    });
   });
-
-  /*
-  var search = new Search({
-    map: map
-  }, "search");
-  search.startup();
-  */
 });

@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/index.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="//js.arcgis.com/3.15/esri/css/esri.css"/>
 	</head>
 	<body class="right-sidebar" id="sponsors">
 		<div id="page-wrapper">
@@ -37,6 +38,12 @@
 				<div id="main-wrapper">
 					<div class="container">
 						<div class="row">
+							<div class="12u mapbanner">
+    						<div id="map">
+	  						</div>
+							</div>
+						</div>
+						<div class="row">
 							<div class="12u">
 
 								<!-- Portfolio -->
@@ -47,8 +54,11 @@
 												<section class="box">
 													<a href="{{postUrl slug}}" class="image featured"><img src="{{coverPicture}}" alt="" /></a>
 													<header>
-														<h3><a href="{{postUrl slug}}">{{title}}</a></h3>
+														<h3><a class="place-title" href="{{postUrl slug}}">{{title}}</a></h3>
                             <p>{{{content.brief}}}</p>
+														<input type="hidden" class="address" value="{{address}}"/>
+														<input type="hidden" class="lat" value="{{lat}}"/>
+														<input type="hidden" class="lng" value="{{lng}}"/>
 													</header>
 												</section>
 											</div>
@@ -90,5 +100,8 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
       <script src="js/index.js"></script>
+
+			<script src="//js.arcgis.com/3.15/"></script>
+			<script src="js/map.js"></script>
 	</body>
 </html>
