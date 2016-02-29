@@ -154,7 +154,7 @@ display:none;
   background: #aaa;
   padding-left: 5px;
   padding-right: 5px;
-  margin: 10px;
+  margin: 6px;
   border-radius: 6px;
 
   color: #fff;
@@ -163,9 +163,13 @@ display:none;
 }
 
 .filters input {
-  margin-right: 4px;
+  display: none;
 }
 
 .filters label.active {
   background: rgba(213, 35, 73, 0.55);
+}
+
+.filters label.active:before {
+  content: '✓ ';
 }
