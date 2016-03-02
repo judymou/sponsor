@@ -13,7 +13,7 @@ var Claim = new keystone.List('Claim', {
 
 Claim.add({
 	name: { type: String},
-	rating: {type: String, default: '85'},
+	rating: {type: String},
   email: { type: String},
   amount: {type: String},
   eventtitle: {type: String},
