@@ -8,3 +8,7 @@ header.major {
 #main-wrapper .major h2 {
   background: none;
 }
+
+.calculator label {
+  font-weight: bold;
+}
