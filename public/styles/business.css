@@ -24,4 +24,6 @@ header.major {
   text-align: left;
 }
 
-
+.box {
+  border-bottom: none;
+}
