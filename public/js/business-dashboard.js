@@ -104,4 +104,6 @@ $(function() {
 
   countDeductions();
   $("#price-option-1, #price-option-2, #revenue, #additional-donations").on('change input', countDeductions);
+  
+  $('[data-toggle="tooltip"]').tooltip();
 });
