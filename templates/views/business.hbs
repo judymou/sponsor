@@ -16,7 +16,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
 		<link rel="stylesheet" href="/styles/c3.min.css" />
-	</head>
+  </head>
 	<body class="right-sidebar" id="sponsors">
 		<div id="page-wrapper">
 
@@ -55,6 +55,7 @@
                             <th>Description</th>
                             <th>Live Update</th>
                             <th>Name</th>
+                            <th>Rating</th>
                             <th>Email</th>
                             <th>Amount</th>
                             <th>Non-profit</th>
@@ -68,6 +69,11 @@
                             <td class="col-md-4">{{eventdesp}}</td>
                             <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
                             <td class="col-md-1">{{name}}</td>
+                            <td class="col-mid-1">
+                              {{#if rating}}
+                              <span id="rating">{{rating}}%</span><span class="glyphicon glyphicon-thumbs-up" style="padding-left:5px;color:green"></span>
+                              {{/if}}
+                            </td>
                             <td class="col-md-2">{{email}}</td>
                             <td class="col-md-1">
 															<span class="amt-opt1">{{amount}}</span>
@@ -103,6 +109,7 @@
                             <th>Description</th>
                             <th>Live Update</th>
                             <th>Name</th>
+                            <th>Rating</th>
                             <th>Email</th>
                             <th>Amount</th>
                             <th>Action</th>
@@ -118,6 +125,11 @@
                             <td class="col-md-3">{{eventdesp}}</td>
                             <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
                             <td class="col-md-1">{{name}}</td>
+                            <td class="col-mid-1">
+                              {{#if rating}}
+                              <span id="rating">{{rating}}%</span><span class="glyphicon glyphicon-thumbs-up" style="padding-left:5px;color:green"></span>
+                              {{/if}}
+                            </td>
                             <td class="col-md-2">{{email}}</td>
                             <td class="col-md-1">
 															<span class="amt-opt1">{{amount}}</span> x option 1
@@ -300,5 +312,5 @@
 			<script src="/js/d3.min.js"></script>
 			<script src="/js/c3.min.js"></script>
 			<script src="/js/business-dashboard.js"></script>
-	</body>
+  </body>
 </html>
