@@ -1,0 +1,14 @@
+#report h2 {
+  display: inline-block;
+  color: #FF2639;
+  padding-right: 10px;
+  font-size:3.2em;
+}
+#report h3 {
+  display: inline-block;
+  font-weight: 500;
+  font-size:1.7em;
+}
+#report .reg {
+  margin-top: 0px;
+}
