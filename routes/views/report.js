@@ -8,12 +8,6 @@ exports = module.exports = function(req, res) {
 	
 	// Init locals
 	locals.section = 'report';
-	locals.data = {
-		claims: [],
-  };
-	
-	view.on('init', function(next) {
-	});
 	
 	// Render the view
 	view.render('report');
