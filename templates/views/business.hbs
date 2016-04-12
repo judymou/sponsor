@@ -54,6 +54,8 @@
                             <th>Event</th>
                             <th>Description</th>
                             <th>Live Update</th>
+                            <th>Visited in person</th>
+                            <th>Last event</th>
                             <th>Name</th>
                             <th>Rating</th>
                             <th>Email</th>
@@ -68,6 +70,14 @@
                             <td class="col-md-1">{{eventtitle}}</td>
                             <td class="col-md-4">{{eventdesp}}</td>
                             <td class="col-md-1"><a href="{{eventlink}}">link</a></td>
+                            <!-- TODO(judy): remove this temp hack for display yes/no for Visited in person -->
+                            {{#if taxid}}
+                              <td class="col-md-1">Yes</td>
+                              <td class="col-md-1">3/12/16</td>
+                            {{else}}
+                              <td class="col-md=1">No</td>
+                              <td class="col-md-1"></td>
+                            {{/if}}
                             <td class="col-md-1">{{name}}</td>
                             <td class="col-mid-1">
                               {{#if rating}}
