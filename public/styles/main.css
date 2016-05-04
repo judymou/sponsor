@@ -1672,8 +1672,9 @@
 	}
 
 		#banner header {
-			background-color: #252122;
-			background-color: rgba(34, 30, 31, 0.85);
+			color: #fff;
+			background-color: ;
+			background-color: ;
 		}
 
 			#banner header h2 {
@@ -1682,7 +1683,7 @@
 			}
 
 			#banner header p {
-				color: #d52349;
+				color: #fff;
 				padding: 0;
 				font-style: normal;
 				margin: 0;
